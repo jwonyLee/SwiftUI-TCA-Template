@@ -4,6 +4,7 @@ import ProjectDescription
 public enum BuildEnvironment: String, CaseIterable {
     case debug
     case release
+    case profile
 
     public var name: String { rawValue.firstUppercased }
 
@@ -12,9 +13,6 @@ public enum BuildEnvironment: String, CaseIterable {
     }
 
     public var projectConfigPath: Path {
-        /// String literal based paths are `.relativeToManifest` by default. So, if you have separate XCConfigurations per
-        /// project then you can only return `"path_relative_to_project.xcconfig"` i.e., `App/Configurations/Target.xcconfig`
-        /// However, it is better to use all paths as `.relativeToRoot` for explicitness
         .relativeToRoot("Environment/\(name).xcconfig")
     }
 
@@ -28,6 +26,8 @@ public enum BuildEnvironment: String, CaseIterable {
             return .debug(name: configurationName, xcconfig: targetConfigPath)
         case .release:
             return .release(name: configurationName, xcconfig: targetConfigPath)
+        case .profile:
+            return .release(name: configurationName, xcconfig: targetConfigPath)
         }
     }
 
@@ -36,6 +36,8 @@ public enum BuildEnvironment: String, CaseIterable {
         case .debug:
             return .debug(name: configurationName, xcconfig: projectConfigPath)
         case .release:
+            return .release(name: configurationName, xcconfig: projectConfigPath)
+        case .profile:
             return .release(name: configurationName, xcconfig: projectConfigPath)
         }
     }
