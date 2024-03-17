@@ -28,7 +28,7 @@ tuist edit
 
 ### ProjectConfiguration
 
-- Constants for project configuration are located in `Tuist/ProjectDescriptionHelpers/ProjectConfiguration.swift`
+- Constants for project configuration are located in [ProjectConfiguration.swift](Tuist/ProjectDescriptionHelpers/ProjectConfiguration.swift)
 - **Some are not included, but should be fixed.**
 
 ## Add Module
