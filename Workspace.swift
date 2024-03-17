@@ -16,5 +16,6 @@ let workspace = Workspace(
         }
 
         return projects
-    }()
+    }(),
+    fileHeaderTemplate: ""
 )

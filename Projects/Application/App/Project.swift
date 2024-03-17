@@ -13,7 +13,6 @@ let targets: [Target] = [
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         dependencies: [
-            
         ]
     ),
     .target(

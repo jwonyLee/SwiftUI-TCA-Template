@@ -112,7 +112,8 @@ let workspace = Workspace(
 
     echo "
         return projects
-    }()
+    }(),
+    fileHeaderTemplate: \"\"
 )" >> $modulesFile
 }
 
