@@ -1,0 +1,7 @@
+import Foundation
+
+public final class {{ name }} {}
+
+// MARK: - {{ name }}Interface
+
+extension {{ name }}: {{ name }}Interface {}

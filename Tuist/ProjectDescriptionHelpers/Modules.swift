@@ -11,16 +11,6 @@ extension Module {
     public var rootPath: String { "Projects/Modules/\(path)" }
 }
 
-// MARK: - Feature
-
-
-public enum Feature: String {
-    case home = "Home"
-}
-
-extension Feature: CaseIterable {}
-extension Feature: Module {}
-
 // MARK: - Core
 
 public enum Core: String {
@@ -29,3 +19,13 @@ public enum Core: String {
 
 extension Core: CaseIterable {}
 extension Core: Module {}
+
+// MARK: - Feature
+
+public enum Feature: String {
+    case home = "Home"
+    case login = "Login"
+}
+
+extension Feature: CaseIterable {}
+extension Feature: Module {}

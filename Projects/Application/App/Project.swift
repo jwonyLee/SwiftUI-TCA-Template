@@ -1,30 +1,28 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let bundleIDPrefix: String = "tech.rieul"
-let deploymentTargets: DeploymentTargets = .iOS("17.0")
-
-enum ProductName {
-    static let name = "App"
-    static var release: String {
-        name
-    }
-    static var debug: String {
-        name + "debug"
-    }
-    static var unitTest: String {
-        name + "unitTest"
-    }
-}
-
 let targets: [Target] = [
     .target(
-        name: ProductName.release,
+        name: ProjectConfiguration.Product.release.name,
         destinations: .iOS,
         product: .app,
-        productName: ProductName.release,
-        bundleId: "\(bundleIDPrefix).\(ProductName.name)",
-        deploymentTargets: deploymentTargets,
+        productName: ProjectConfiguration.Product.release.name,
+        bundleId: ProjectConfiguration.Product.release.bundleID,
+        deploymentTargets: ProjectConfiguration.deploymentTargets,
+        infoPlist: .default,
+        sources: ["Sources/**"],
+        resources: ["Resources/**"],
+        dependencies: [
+            
+        ]
+    ),
+    .target(
+        name: ProjectConfiguration.Product.debug.name,
+        destinations: .iOS,
+        product: .app,
+        productName: ProjectConfiguration.Product.debug.name,
+        bundleId: ProjectConfiguration.Product.debug.bundleID,
+        deploymentTargets: ProjectConfiguration.deploymentTargets,
         infoPlist: .default,
         sources: ["Sources/**"],
         resources: ["Resources/**"],
@@ -32,40 +30,27 @@ let targets: [Target] = [
         ]
     ),
     .target(
-        name: ProductName.debug,
-        destinations: .iOS,
-        product: .app,
-        productName: ProductName.release,
-        bundleId: "\(bundleIDPrefix).\(ProductName.name).\(ProductName.debug)",
-        deploymentTargets: deploymentTargets,
-        infoPlist: .default,
-        sources: ["Sources/**"],
-        resources: ["Resources/**"],
-        dependencies: [
-        ]
-    ),
-    .target(
-        name: ProductName.unitTest,
+        name: ProjectConfiguration.Product.unitTest.name,
         destinations: .iOS,
         product: .unitTests,
-        bundleId: "\(bundleIDPrefix).\(ProductName.name).\(ProductName.unitTest)",
+        bundleId: ProjectConfiguration.Product.unitTest.bundleID,
         infoPlist: .default,
         sources: "Tests/**",
         dependencies: [
-            .target(name: ProductName.debug)
+            .target(name: ProjectConfiguration.Product.debug.name)
         ]
     ),
 ]
 
 let schemes: [Scheme] = [
     .scheme(
-        name: ProductName.debug,
+        name: ProjectConfiguration.Product.debug.name,
         shared: true,
         buildAction: .buildAction(
-            targets: ["\(ProductName.debug)"]
+            targets: ["\(ProjectConfiguration.Product.debug.name)"]
         ),
         testAction: .targets(
-            ["\(ProductName.unitTest)"],
+            ["\(ProjectConfiguration.Product.unitTest.name)"],
             configuration: .debug,
             options: .options(
                 coverage: true
@@ -85,10 +70,10 @@ let schemes: [Scheme] = [
         )
     ),
     .scheme(
-        name: ProductName.release,
+        name: ProjectConfiguration.Product.release.name,
         shared: true,
         buildAction: .buildAction(
-            targets: ["\(ProductName.release)"]
+            targets: ["\(ProjectConfiguration.Product.release.name)"]
         ),
         testAction: nil,
         runAction: .runAction(
@@ -109,8 +94,8 @@ let schemes: [Scheme] = [
 // MARK: - Project
 
 let project = Project(
-    name: "Application",
-    organizationName: "rieul.tech",
+    name: ProjectConfiguration.projectName,
+    organizationName: ProjectConfiguration.organizationName,
     settings: .projectSettings,
     targets: targets,
     schemes: schemes

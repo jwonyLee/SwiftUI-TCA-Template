@@ -1,42 +1,46 @@
 import ProjectDescription
 
-// MARK: - Feature
-
-extension TargetDependency {
-    private static func feature(target: String, moduleName: String) -> TargetDependency {
-        .project(target: target, path: .relativeToRoot("Projects/Modules/Feature/" + moduleName))
-    }
-
-    public static func feature(interface moduleName: Feature) -> TargetDependency {
-        .feature(target: moduleName.rawValue + "Interface", moduleName: moduleName.rawValue)
-    }
-
-    public static func feature(implementation moduleName: Feature) -> TargetDependency {
-        .feature(target: moduleName.rawValue, moduleName: moduleName.rawValue)
-    }
-
-    public static func feature(testing moduleName: Feature) -> TargetDependency {
-        .feature(target: moduleName.rawValue + "Testing", moduleName: moduleName.rawValue)
-    }
-}
-
-
 // MARK: - Core
 
 extension TargetDependency {
-    private static func core(target: String, moduleName: String) -> TargetDependency {
-        .project(target: target, path: .relativeToRoot("Projects/Modules/Core/" + moduleName))
+    private static func core(target: String, module: Core) -> TargetDependency {
+        .project(
+            target: target,
+            path: .relativeToRoot(module.rootPath)
+        )
     }
-
-    public static func core(interface moduleName: Core) -> TargetDependency {
-        .core(target: moduleName.rawValue + "Interface", moduleName: moduleName.rawValue)
+    
+    public static func core(interface module: Core) -> TargetDependency {
+        .core(target: module.name + "Interface", module: module)
     }
-
-    public static func core(implementation moduleName: Core) -> TargetDependency {
-        .core(target: moduleName.rawValue, moduleName: moduleName.rawValue)
+    
+    public static func core(implementation module: Core) -> TargetDependency {
+        .core(target: module.name, module: module)
     }
+    
+    public static func core(testing module: Core) -> TargetDependency {
+        .core(target: module.name + "Testing", module: module)
+    }
+}
+// MARK: - Feature
 
-    public static func core(testing moduleName: Core) -> TargetDependency {
-        .core(target: moduleName.rawValue + "Testing", moduleName: moduleName.rawValue)
+extension TargetDependency {
+    private static func feature(target: String, module: Feature) -> TargetDependency {
+        .project(
+            target: target,
+            path: .relativeToRoot(module.rootPath)
+        )
+    }
+    
+    public static func feature(interface module: Feature) -> TargetDependency {
+        .feature(target: module.name + "Interface", module: module)
+    }
+    
+    public static func feature(implementation module: Feature) -> TargetDependency {
+        .feature(target: module.name, module: module)
+    }
+    
+    public static func feature(testing module: Feature) -> TargetDependency {
+        .feature(target: module.name + "Testing", module: module)
     }
 }
