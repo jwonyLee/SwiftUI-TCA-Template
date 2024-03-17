@@ -1,0 +1,17 @@
+import ProjectDescription
+
+let project = Project(
+    name: "{{ name }}",
+    targets: [
+        .target(
+            name: "{{ name }}",
+            destinations: .iOS,
+            product: .staticFramework,
+            bundleId: "tech.rieul.{{ name }}",
+            sources: "Sources/**",
+            dependencies: [
+                .external(name: "ComposableArchitecture"),
+            ]
+        ),
+    ]
+)
