@@ -4,10 +4,8 @@ tuist based iOS Project with SwiftUI, TCA
 
 ## To-Do
 
-- [ ] Dependency
-- [x] Feature stencil 추가
-- [x] Module stencil 추가
-- [ ] 하위 모듈 구성하기
+- [ ] Configure Settings
+- [ ] Resoucre Generate
 
 ## Get Started
 

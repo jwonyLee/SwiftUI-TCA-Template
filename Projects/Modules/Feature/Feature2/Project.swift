@@ -1,31 +1,30 @@
 import ProjectDescription
-import ProjectDescriptionHelpers
 
 let targets: [Target] = [
     .target(
-        name: "{{ name }}Interface",
+        name: "Feature2Interface",
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "tech.rieul.Core.{{ name }}Interface",
+        bundleId: "tech.rieul.Feature.Feature2Interface",
         sources: "Sources/**",
         dependencies: [
         ]
     ),
     .target(
-        name: "{{ name }}",
+        name: "Feature2",
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "tech.rieul.Core.{{ name }}",
+        bundleId: "tech.rieul.Feature.Feature2",
         sources: "Sources/**",
         dependencies: [
             .external(name: "ComposableArchitecture"),
         ]
     ),
     .target(
-        name: "{{ name }}Testing",
+        name: "Feature2Testing",
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "tech.rieul.Core.{{ name }}Testing",
+        bundleId: "tech.rieul.Feature.Feature2Testing",
         sources: "Tests/**",
         dependencies: [
         ]
@@ -33,6 +32,6 @@ let targets: [Target] = [
 ]
 
 let project = Project(
-    name: "{{ name }}",
+    name: "Feature2",
     targets: targets
 )

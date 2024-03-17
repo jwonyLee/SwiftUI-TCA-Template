@@ -23,8 +23,9 @@ extension Core: Module {}
 // MARK: - Feature
 
 public enum Feature: String {
+    case feature1 = "Feature1"
+    case feature2 = "Feature2"
     case home = "Home"
-    case login = "Login"
 }
 
 extension Feature: CaseIterable {}

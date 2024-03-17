@@ -1,9 +1,9 @@
 import Foundation
 import XCTest
 
-@testable import Login
+@testable import Feature1
 
-final class LoginTests: XCTestCase {
+final class Feature1Tests: XCTestCase {
     func testExample() {
     }
 }

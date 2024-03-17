@@ -6,7 +6,7 @@ let targets: [Target] = [
         name: "{{ name }}Interface",
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "tech.rieul.Core.{{ name }}Interface",
+        bundleId: "tech.rieul.Feature.{{ name }}Interface",
         sources: "Sources/**",
         dependencies: [
         ]
@@ -15,7 +15,7 @@ let targets: [Target] = [
         name: "{{ name }}",
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "tech.rieul.Core.{{ name }}",
+        bundleId: "tech.rieul.Feature.{{ name }}",
         sources: "Sources/**",
         dependencies: [
             .external(name: "ComposableArchitecture"),
@@ -25,7 +25,7 @@ let targets: [Target] = [
         name: "{{ name }}Testing",
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "tech.rieul.Core.{{ name }}Testing",
+        bundleId: "tech.rieul.Feature.{{ name }}Testing",
         sources: "Tests/**",
         dependencies: [
         ]
