@@ -7,7 +7,7 @@ public enum ProjectConfiguration {
     public static let bundleIDPrefix: String = "tech.rieul"
     public static let deploymentTargets: DeploymentTargets = .iOS("17.0")
 
-    public enum Product {
+    public enum Product: String {
         case release
         case debug
         case unitTest
@@ -26,7 +26,7 @@ public enum ProjectConfiguration {
         }
         
         public var bundleID: String {
-            "\(ProjectConfiguration.bundleIDPrefix).\(ProjectConfiguration.Product._name).\(name)"
+            "\(ProjectConfiguration.bundleIDPrefix).\(ProjectConfiguration.Product._name).\(self.rawValue)"
         }
     }
 }

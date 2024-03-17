@@ -9,7 +9,8 @@ let targets: [Target] = [
         bundleId: "tech.rieul.Core.{{ name }}Interface",
         sources: "Sources/**",
         dependencies: [
-        ]
+        ],
+        settings: .targetSettings
     ),
     .target(
         name: "{{ name }}",
@@ -19,20 +20,23 @@ let targets: [Target] = [
         sources: "Sources/**",
         dependencies: [
             .external(name: "ComposableArchitecture"),
-        ]
+        ],
+        settings: .targetSettings
     ),
     .target(
         name: "{{ name }}Testing",
         destinations: .iOS,
-        product: .staticFramework,
+        product: .unitTests,
         bundleId: "tech.rieul.Core.{{ name }}Testing",
         sources: "Tests/**",
         dependencies: [
-        ]
+        ],
+        settings: .targetSettings
     ),
 ]
 
 let project = Project(
     name: "{{ name }}",
+    settings: .projectSettings,
     targets: targets
 )

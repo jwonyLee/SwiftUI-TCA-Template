@@ -8,12 +8,6 @@ let workspace = Workspace(
             Path("Projects/Application/**"),
         ]
 
-        projects += Core.allCases.map {
-            Path(stringLiteral: $0.rootPath)
-        }
-        projects += Feature.allCases.map {
-            Path(stringLiteral: $0.rootPath)
-        }
 
         return projects
     }(),

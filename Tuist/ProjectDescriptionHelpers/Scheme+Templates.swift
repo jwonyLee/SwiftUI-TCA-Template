@@ -10,10 +10,6 @@ extension Scheme {
         scheme(for: .release, target: target, executable: executable)
     }
 
-    public static func profile(for target: String, executable: String? = nil) -> Scheme {
-        scheme(for: .profile, target: target, executable: executable)
-    }
-
     public static func scheme(
         for env: BuildEnvironment,
         target: String,

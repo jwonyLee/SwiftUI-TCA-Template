@@ -4,7 +4,6 @@ import ProjectDescription
 public enum BuildEnvironment: String, CaseIterable {
     case debug
     case release
-    case profile
 
     public var name: String { rawValue.firstUppercased }
 
@@ -26,8 +25,6 @@ public enum BuildEnvironment: String, CaseIterable {
             return .debug(name: configurationName, xcconfig: targetConfigPath)
         case .release:
             return .release(name: configurationName, xcconfig: targetConfigPath)
-        case .profile:
-            return .release(name: configurationName, xcconfig: targetConfigPath)
         }
     }
 
@@ -36,8 +33,6 @@ public enum BuildEnvironment: String, CaseIterable {
         case .debug:
             return .debug(name: configurationName, xcconfig: projectConfigPath)
         case .release:
-            return .release(name: configurationName, xcconfig: projectConfigPath)
-        case .profile:
             return .release(name: configurationName, xcconfig: projectConfigPath)
         }
     }

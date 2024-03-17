@@ -13,7 +13,8 @@ let targets: [Target] = [
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         dependencies: [
-        ]
+        ],
+        settings: .targetSettings
     ),
     .target(
         name: ProjectConfiguration.Product.debug.name,
@@ -26,7 +27,8 @@ let targets: [Target] = [
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         dependencies: [
-        ]
+        ],
+        settings: .targetSettings
     ),
     .target(
         name: ProjectConfiguration.Product.unitTest.name,
@@ -37,7 +39,8 @@ let targets: [Target] = [
         sources: "Tests/**",
         dependencies: [
             .target(name: ProjectConfiguration.Product.debug.name)
-        ]
+        ],
+        settings: .targetSettings
     ),
 ]
 
