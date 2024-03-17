@@ -33,9 +33,8 @@ tuist edit
 
 ## Add Module
 
-```important
-Do not Use tuist scaffold directly. Because it contains script execution to update project related files in Makefile.
-```
+> [!CAUTION]
+> Do not Use tuist scaffold directly. Because it contains script execution to update project related files in Makefile.
 
 ```sh
 make module type={type} name={name}
