@@ -1,12 +1,12 @@
 # SwiftUI-TCA-Template
 
-tuist based
+tuist based iOS Project with SwiftUI, TCA
 
 ## To-Do
 
 - [ ] Dependency
 - [x] Feature stencil 추가
-- [ ] Module stencil 추가
+- [x] Module stencil 추가
 - [ ] 하위 모듈 구성하기
 
 ## Get Started
@@ -16,7 +16,7 @@ Install dependencies
 tuist install
 ```
 
-Generate
+Project Generate
 ```
 tuist generate
 ```
@@ -26,16 +26,31 @@ Edit Structure
 tuist edit
 ```
 
-## Add Feature with Scaffold
+### ProjectConfiguration
 
-```
-tuist scaffold Feature --name Home
+- Constants for project configuration are located in `Tuist/ProjectDescriptionHelpers/ProjectConfiguration.swift`
+- **Some are not included, but should be fixed.**
+
+## Add Module
+
+```important
+Do not Use tuist scaffold directly. Because it contains script execution to update project related files in Makefile.
 ```
 
-## Add Module with Scaffold
-
+```sh
+make module type={type} name={name}
 ```
-tuist scaffold Module --name Home
+
+### Make Core Module
+
+```sh
+make module type=Core name=Network
+```
+
+### Make Feature Module
+
+```sh
+make module type=Feature name=Login
 ```
 
 ## Reference
