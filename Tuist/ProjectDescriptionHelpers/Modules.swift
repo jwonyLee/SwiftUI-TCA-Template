@@ -6,7 +6,7 @@ public protocol Module: RawRepresentable<String> {
 }
 
 extension Module {
-    public var name: String { "\(self.rawValue)\(type(of: self))" }
+    public var name: String { "\(self.rawValue)" }
     public var path: String { "\(type(of: self))/\(name)" }
     public var rootPath: String { "Projects/Modules/\(path)" }
 }

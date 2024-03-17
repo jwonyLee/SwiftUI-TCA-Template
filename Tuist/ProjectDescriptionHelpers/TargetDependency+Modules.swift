@@ -8,15 +8,15 @@ extension TargetDependency {
     }
 
     public static func feature(interface moduleName: Feature) -> TargetDependency {
-        .feature(target: moduleName.rawValue + "FeatureInterface", moduleName: moduleName.rawValue)
+        .feature(target: moduleName.rawValue + "Interface", moduleName: moduleName.rawValue)
     }
 
     public static func feature(implementation moduleName: Feature) -> TargetDependency {
-        .feature(target: moduleName.rawValue + "Feature", moduleName: moduleName.rawValue)
+        .feature(target: moduleName.rawValue, moduleName: moduleName.rawValue)
     }
 
     public static func feature(testing moduleName: Feature) -> TargetDependency {
-        .feature(target: moduleName.rawValue + "FeatureTesting", moduleName: moduleName.rawValue)
+        .feature(target: moduleName.rawValue + "Testing", moduleName: moduleName.rawValue)
     }
 }
 
