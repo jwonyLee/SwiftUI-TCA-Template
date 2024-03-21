@@ -15,6 +15,7 @@ extension Module {
 
 public enum Feature: String {
     case home = "Home"
+    case root = "Root"
 }
 
 extension Feature: CaseIterable {}
