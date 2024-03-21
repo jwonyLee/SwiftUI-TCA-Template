@@ -7,7 +7,7 @@ let targets: [Target] = [
         destinations: .iOS,
         product: .staticFramework,
         bundleId: "tech.rieul.Core.{{ name }}Interface",
-        sources: "Sources/**",
+        sources: "Interfaces/**",
         dependencies: [
         ],
         settings: .targetSettings
@@ -15,7 +15,7 @@ let targets: [Target] = [
     .target(
         name: "{{ name }}",
         destinations: .iOS,
-        product: .staticFramework,
+        product: .framework,
         bundleId: "tech.rieul.Core.{{ name }}",
         sources: "Sources/**",
         dependencies: [

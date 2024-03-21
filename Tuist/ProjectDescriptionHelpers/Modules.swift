@@ -10,3 +10,12 @@ extension Module {
     public var path: String { "\(type(of: self))/\(name)" }
     public var rootPath: String { "Projects/Modules/\(path)" }
 }
+
+// MARK: - Feature
+
+public enum Feature: String {
+    case home = "Home"
+}
+
+extension Feature: CaseIterable {}
+extension Feature: Module {}

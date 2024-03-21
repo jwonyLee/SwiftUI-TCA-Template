@@ -12,7 +12,7 @@ let tamplete: Template = Template(
     items: [
         // Implementation
         .file(path: "\(path)Project.swift", templatePath: "Project.stencil"),
-        .file(path: "\(path)Sources/\(nameAttribute)Interface.swift", templatePath: "Interface.stencil"),
+        .file(path: "\(path)Interfaces/\(nameAttribute)Interface.swift", templatePath: "Interface.stencil"),
         .file(path: "\(path)Sources/\(nameAttribute).swift", templatePath: "Implementation.stencil"),
         // Tests
         .file(path: "\(path)Tests/\(nameAttribute)Tests.swift", templatePath: "Tests.stencil"),
