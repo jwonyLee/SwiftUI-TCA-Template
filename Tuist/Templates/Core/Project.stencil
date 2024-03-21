@@ -1,6 +1,10 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
+let dependencies: [TargetDependency] = [
+    .external(name: "ComposableArchitecture"),
+]
+
 let targets: [Target] = [
     .target(
         name: "{{ name }}Interface",
@@ -18,9 +22,7 @@ let targets: [Target] = [
         product: .framework,
         bundleId: "tech.rieul.Core.{{ name }}",
         sources: "Sources/**",
-        dependencies: [
-            .external(name: "ComposableArchitecture"),
-        ],
+        dependencies: dependencies,
         settings: .targetSettings
     ),
     .target(
@@ -30,6 +32,7 @@ let targets: [Target] = [
         bundleId: "tech.rieul.Core.{{ name }}Testing",
         sources: "Tests/**",
         dependencies: [
+            .target(name: "{{ name }}")
         ],
         settings: .targetSettings
     ),

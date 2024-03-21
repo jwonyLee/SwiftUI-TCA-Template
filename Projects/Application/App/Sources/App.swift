@@ -1,10 +1,16 @@
 import SwiftUI
 
+import ComposableArchitecture
+
 @main
 struct MainApp: App {
+    static let store = Store(initialState: AppFeature.State()) {
+        AppFeature()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            AppView()
+            AppView(store: MainApp.store)
         }
     }
 }

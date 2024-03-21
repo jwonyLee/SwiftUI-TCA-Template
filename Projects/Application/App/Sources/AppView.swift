@@ -1,11 +1,24 @@
 import SwiftUI
 
-struct AppView: View {    
+import Root
+
+import ComposableArchitecture
+
+struct AppView: View {
+    let store: StoreOf<AppFeature>
+    
     var body: some View {
-        Text("Hello")
+        RootView(
+            store: store.scope(state: \.root, action: /AppFeature.Action.root)
+        )
     }
 }
 
 #Preview {
-    AppView()
+    AppView(
+        store: Store(initialState: AppFeature.State()) {
+            AppFeature()
+        }
+    )
 }
+

@@ -5,7 +5,7 @@ public enum ProjectConfiguration {
     public static let projectName: String = "Application"
     public static let organizationName: String = "rieul.tech"
     public static let bundleIDPrefix: String = "tech.rieul"
-    public static let deploymentTargets: DeploymentTargets = .iOS("17.0")
+    public static let deploymentTargets: DeploymentTargets = .iOS("17.4")
 
     public enum Product: String {
         case release

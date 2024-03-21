@@ -1,6 +1,10 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
+let dependencies: [TargetDependency] = [
+    .project(target: "Root", path: .relativeToRoot("Projects/Modules/Feature/Root")),
+]
+
 let targets: [Target] = [
     .target(
         name: ProjectConfiguration.Product.release.name,
@@ -12,8 +16,7 @@ let targets: [Target] = [
         infoPlist: .default,
         sources: ["Sources/**"],
         resources: ["Resources/**"],
-        dependencies: [
-        ],
+        dependencies: dependencies,
         settings: .targetSettings
     ),
     .target(
@@ -26,8 +29,7 @@ let targets: [Target] = [
         infoPlist: .default,
         sources: ["Sources/**"],
         resources: ["Resources/**"],
-        dependencies: [
-        ],
+        dependencies: dependencies,
         settings: .targetSettings
     ),
     .target(

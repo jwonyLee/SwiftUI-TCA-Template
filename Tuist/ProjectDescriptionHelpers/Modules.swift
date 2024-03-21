@@ -14,7 +14,8 @@ extension Module {
 // MARK: - Feature
 
 public enum Feature: String {
-    case home = "Home"
+    case loggedIn = "LoggedIn"
+    case loggedOut = "LoggedOut"
     case root = "Root"
 }
 
