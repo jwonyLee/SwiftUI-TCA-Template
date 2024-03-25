@@ -6,6 +6,7 @@ import LoggedOut
 import ComposableArchitecture
 
 public struct RootFeature: Reducer {
+    @ObservableState
     public enum State: Equatable {
         case loggedIn(LoggedInFeature.State)
         case loggedOut(LoggedOutFeature.State)

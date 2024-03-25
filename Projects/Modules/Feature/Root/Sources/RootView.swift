@@ -13,9 +13,27 @@ public struct RootView: View {
     }
     
     public var body: some View {
-        Text("Hello World")
-        
-//        switch store.case {
+        switch store.state {
+        case .loggedIn:
+            if let store = store.scope(
+                state: \.loggedIn,
+                action: RootFeature.Action.loggedIn
+            ) {
+                NavigationStack {
+                    LoggedInView(store: store)
+                }
+            }
+        case .loggedOut:
+            if let store = store.scope(
+                state: \.loggedOut,
+                action: RootFeature.Action.loggedOut
+            ) {
+                NavigationStack {
+                    LoggedOutView(store: store)
+                }
+            }
+        }
+//        switch store.state {
 //        case let .loggedIn(store):
 //            NavigationStack {
 //                LoggedInView(store: store)
@@ -25,5 +43,6 @@ public struct RootView: View {
 //                LoggedOutView(store: store)
 //            }
 //        }
+        
     }
 }
