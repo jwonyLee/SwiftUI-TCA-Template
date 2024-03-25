@@ -2,13 +2,14 @@ import Foundation
 
 import ComposableArchitecture
 
-public struct LoggedInFeature: Reducer {
+@Reducer
+public struct LoggedInFeature {
     public struct State: Equatable {
     
         public init() {}
     }
     
-    public enum Action {
+    public enum Action: Equatable {
     }
     
     public init() {}

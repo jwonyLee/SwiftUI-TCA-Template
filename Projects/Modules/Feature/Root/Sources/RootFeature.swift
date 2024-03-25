@@ -6,38 +6,49 @@ import LoggedOut
 import ComposableArchitecture
 
 public struct RootFeature: Reducer {
-    @ObservableState
     public enum State: Equatable {
         case loggedIn(LoggedInFeature.State)
         case loggedOut(LoggedOutFeature.State)
         
-//        public var loggedIn: LoggedInFeature.State
-//        public var loggedOut: LoggedOutFeature.State
-//        
-//        public init(
-//            loggedIn: LoggedInFeature.State = .init(),
-//            loggedOut: LoggedOutFeature.State = .init()
-//        ) {
-//            self.loggedIn = loggedIn
-//            self.loggedOut = loggedOut
-//        }
+        public init() {
+            self = .loggedOut(LoggedOutFeature.State())
+        }
     }
     
-    public enum Action {
+    public enum Action: Equatable {
         case loggedIn(LoggedInFeature.Action)
         case loggedOut(LoggedOutFeature.Action)
     }
     
-    public init() {}
+    public init() {
+    }
     
-    public var body: some ReducerOf<Self> {
-        Scope(state: \.loggedIn, action: /Action.loggedIn) {
+    public static var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .loggedIn:
+                return .none
+
+            case .loggedOut:
+                return .none
+            }
+        }
+        .ifCaseLet(/State.loggedIn, action: /Action.loggedIn) {
             LoggedInFeature()
         }
-        Scope(state: \.loggedOut, action: /Action.loggedOut) {
+        .ifCaseLet(/State.loggedOut, action: /Action.loggedOut) {
             LoggedOutFeature()
         }
-        Reduce { state, action in
+    }
+    
+    public func reduce(
+        into state: inout State,
+        action: Action
+    ) -> ComposableArchitecture.Effect<Action> {
+        switch action {
+        case .loggedIn:
+            return .none
+        case .loggedOut:
             return .none
         }
     }

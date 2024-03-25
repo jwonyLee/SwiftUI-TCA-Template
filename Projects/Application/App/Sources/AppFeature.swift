@@ -8,10 +8,10 @@ import ComposableArchitecture
 
 public struct AppFeature: Reducer {
     public struct State: Equatable {
-        public var root = RootFeature.State.loggedIn(LoggedInFeature.State())
+        public var root = RootFeature.State()
     }
     
-    public enum Action {
+    public enum Action: Equatable {
         case root(RootFeature.Action)
     }
     
@@ -23,4 +23,5 @@ public struct AppFeature: Reducer {
         Reduce { state, action in
             return .none
         }
-    }}
+    }
+}

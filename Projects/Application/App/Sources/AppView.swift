@@ -9,7 +9,10 @@ struct AppView: View {
     
     var body: some View {
         RootView(
-            store: store.scope(state: \.root, action: /AppFeature.Action.root)
+            store: store.scope(
+                state: \.root,
+                action: AppFeature.Action.root
+            )
         )
     }
 }

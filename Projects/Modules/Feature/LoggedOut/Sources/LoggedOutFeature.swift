@@ -8,7 +8,7 @@ public struct LoggedOutFeature: Reducer {
         public init() {}
     }
     
-    public enum Action {
+    public enum Action: Equatable {
     }
     
     public init() {}
