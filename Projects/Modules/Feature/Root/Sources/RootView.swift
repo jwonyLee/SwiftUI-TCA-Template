@@ -1,5 +1,7 @@
 import SwiftUI
 
+import LoggedOut
+
 import ComposableArchitecture
 
 public struct RootView: View {
@@ -12,7 +14,8 @@ public struct RootView: View {
     }
 
     public var body: some View {
-        Text("Root")
+        let store = store.scope(state: \.loggedOut, action: \.loggedOut)
+        LoggedOutView(store: store)
     }
 }
 

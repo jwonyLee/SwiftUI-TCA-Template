@@ -3,44 +3,43 @@ import ProjectDescriptionHelpers
 
 let dependencies: [TargetDependency] = [
     .external(name: "ComposableArchitecture"),
-    .project(target: "LoggedOut", path: .relativeToRoot("Projects/Modules/Feature/LoggedOut"))
 ]
 
 let targets: [Target] = [
     .target(
-        name: "RootInterface",
+        name: "LoggedOutInterface",
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "tech.rieul.Feature.RootInterface",
+        bundleId: "tech.rieul.Feature.LoggedOutInterface",
         sources: "Interfaces/**",
         dependencies: [
         ],
         settings: .targetSettings
     ),
     .target(
-        name: "Root",
+        name: "LoggedOut",
         destinations: .iOS,
         product: .framework,
-        bundleId: "tech.rieul.Feature.Root",
+        bundleId: "tech.rieul.Feature.LoggedOut",
         sources: "Sources/**",
         dependencies: dependencies,
         settings: .targetSettings
     ),
     .target(
-        name: "RootTesting",
+        name: "LoggedOutTesting",
         destinations: .iOS,
         product: .unitTests,
-        bundleId: "tech.rieul.Feature.RootTesting",
+        bundleId: "tech.rieul.Feature.LoggedOutTesting",
         sources: "Tests/**",
         dependencies: [
-            .target(name: "Root")
+            .target(name: "LoggedOut")
         ],
         settings: .targetSettings
     ),
 ]
 
 let project = Project(
-    name: "Root",
+    name: "LoggedOut",
     settings: .projectSettings,
     targets: targets
 )
