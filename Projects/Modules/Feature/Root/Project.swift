@@ -3,8 +3,6 @@ import ProjectDescriptionHelpers
 
 let dependencies: [TargetDependency] = [
     .external(name: "ComposableArchitecture"),
-    .project(target: "LoggedIn", path: .relativeToRoot("Projects/Modules/Feature/LoggedIn")),
-    .project(target: "LoggedOut", path: .relativeToRoot("Projects/Modules/Feature/LoggedOut")),
 ]
 
 let targets: [Target] = [

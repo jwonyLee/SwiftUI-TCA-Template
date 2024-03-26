@@ -1,8 +1,6 @@
 import Foundation
 
 import Root
-import LoggedIn
-import LoggedOut
 
 import ComposableArchitecture
 
@@ -11,7 +9,7 @@ public struct AppFeature: Reducer {
         public var root = RootFeature.State()
     }
     
-    public enum Action: Equatable {
+    public enum Action {
         case root(RootFeature.Action)
     }
     

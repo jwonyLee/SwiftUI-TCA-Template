@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "PackageName",
-    platforms: [.iOS(.v17), .macOS(.v14)],
+    platforms: [.iOS(.v17)],
     dependencies: [
         .package(
             url: "https://github.com/pointfreeco/swift-composable-architecture.git",
