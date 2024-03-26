@@ -11,7 +11,7 @@ struct AppView: View {
         RootView(
             store: store.scope(
                 state: \.root,
-                action: AppFeature.Action.root
+                action: \.root
             )
         )
     }
@@ -19,7 +19,9 @@ struct AppView: View {
 
 #Preview {
     AppView(
-        store: Store(initialState: AppFeature.State()) {
+        store: Store(
+            initialState: AppFeature.State(root: .loggedIn(.init()))
+        ) {
             AppFeature()
         }
     )

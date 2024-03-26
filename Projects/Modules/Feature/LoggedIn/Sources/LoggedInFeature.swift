@@ -3,7 +3,7 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-public struct LoggedOutFeature {
+public struct LoggedInFeature {
     public struct State: Equatable {
     
         public init() {}

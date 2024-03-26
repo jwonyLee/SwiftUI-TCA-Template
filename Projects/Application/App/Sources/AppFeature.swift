@@ -4,9 +4,14 @@ import Root
 
 import ComposableArchitecture
 
-public struct AppFeature: Reducer {
+@Reducer
+public struct AppFeature {
     public struct State: Equatable {
-        public var root = RootFeature.State()
+        public var root: RootFeature.State
+        
+        public init(root: RootFeature.State) {
+            self.root = root
+        }
     }
     
     public enum Action {
@@ -14,8 +19,8 @@ public struct AppFeature: Reducer {
     }
     
     public var body: some ReducerOf<Self> {
-        Scope(state: \.root, action: /Action.root) {
-            RootFeature()
+        Scope(state: \.root, action: \.root) {
+            RootFeature.body
         }
         
         Reduce { state, action in
