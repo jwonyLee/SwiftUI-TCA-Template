@@ -2,7 +2,7 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let dependencies: [TargetDependency] = [
-    .project(target: "Root", path: .relativeToRoot("Projects/Modules/Feature/Root")),
+    .feature(implementation: .root)
 ]
 
 let targets: [Target] = [
@@ -13,7 +13,11 @@ let targets: [Target] = [
         productName: ProjectConfiguration.Product.release.name,
         bundleId: ProjectConfiguration.Product.release.bundleID,
         deploymentTargets: ProjectConfiguration.deploymentTargets,
-        infoPlist: .default,
+        infoPlist: .extendingDefault(
+            with: [
+                "UILaunchStoryboardName": "LaunchScreen",
+            ]
+        ),
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         dependencies: dependencies,
@@ -26,7 +30,11 @@ let targets: [Target] = [
         productName: ProjectConfiguration.Product.debug.name,
         bundleId: ProjectConfiguration.Product.debug.bundleID,
         deploymentTargets: ProjectConfiguration.deploymentTargets,
-        infoPlist: .default,
+        infoPlist: .extendingDefault(
+            with: [
+                "UILaunchStoryboardName": "LaunchScreen",
+            ]
+        ),
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         dependencies: dependencies,

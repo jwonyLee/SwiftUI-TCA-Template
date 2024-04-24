@@ -14,5 +14,5 @@ let workspace = Workspace(
 
         return projects
     }(),
-    fileHeaderTemplate: ""
+    fileHeaderTemplate: "  ___COPYRIGHT___"
 )
